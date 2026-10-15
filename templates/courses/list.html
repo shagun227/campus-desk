@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Campus Desk</title></head>
+<body>
+  <h1>Campus Desk</h1>
+  <ul>
+    {% for course in courses %}
+      <li><a href="{% url 'course-detail' course.code %}">{{ course.code }} — {{ course.title }}</a> ({{ course.seats_left }} seats left)</li>
+    {% empty %}
+      <li>No courses yet. Add one in the admin.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
